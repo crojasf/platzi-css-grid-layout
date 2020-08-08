@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Movie.es</title>
+	<script src="https://kit.fontawesome.com/029825de04.js" crossorigin="anonymous"></script>
+
+
+
+
+	
+	<style>
+		body {
+			margin: 0;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		.movie {
+			display: grid;
+			min-height: 100vh;
+			grid-template-columns: 90px 1fr;
+			/* grid-template-rows: 70px 1fr; */
+			grid-template-areas: "header header"
+					   			 "nav peliculas";
+		}
+
+
+		.header {
+			grid-area: header;
+			padding: 15px 30px;
+			display: grid;
+			grid-template-columns: 250px 1fr 140px 45px 30px;
+			align-items: center;
+			-webkit-box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.2);
+			-moz-box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.2);
+			box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.2);
+		}
+		.header-logo {
+			max-width: 130px;
+		}
+		.header-form {
+			
+		}
+		.header-form input {
+			border: 1px solid #8a8a8a;
+			border-radius: 10px;
+			width: 90%;
+			padding: 10px;
+			font-size: 1em;
+
+		}.header-form input::placeholder {
+			color: #a09d9d;
+		}
+		.header-usuario{
+			display: grid;
+			grid-auto-flow: columns;
+			font-weight: bold;
+			align-items: top;
+		}
+		.header-avatar {
+			max-width: 45px;
+		}		
+		.header i {
+			padding: 0 5px;
+		}
+
+
+		.nav {			
+			grid-area: nav;
+			background-color: #fd6564;
+			padding: 1rem 0 ;
+			color: white;
+			font-weight: bold;
+			display:grid;
+			grid-template-rows: repeat(3,90px) 1fr;
+			justify-items: center;
+			align-items: start;			
+		}
+		.nav div {
+			text-align: center;
+		}
+		.nav-ajustes{
+			position: -webkit-sticky;
+			position: sticky;
+			bottom: 0;
+			align-self: end;		
+		}
+		.nav i {
+			font-size: 1.5em;
+		}
+
+
+
+		.peliculas {
+			grid-area: peliculas;
+			padding: 0 10px 0 30px;
+		}
+		.peliculas h2 {
+			font-size: 1rem;
+		}
+		.peliculas-seccion {
+			display: grid;
+			grid-auto-flow: column;
+			justify-items: start;
+			grid-gap: 10px;
+		}
+		.pelicula {
+			position: relative;
+			max-width: 290px;
+			max-height: 190px;
+			overflow: hidden;
+		}
+
+		.pelicula-imagen {
+			width: 100%;
+
+		}
+		.pelicula-detalles{
+			background-color: rgba(253,101,100,0.8);
+			padding: 8px;
+			color: white;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+		}
+		.pelicula-titulo {
+			font-size: 1.25rem;
+			margin: 0;
+		}
+		.pelicula-descripcion{
+			font-size: 0.75rem;
+			margin-bottom: 0;
+		}
+
+
+
+	@media screen and (max-width : 768px){
+		body {
+		}
+
+		.movie {
+			grid-template-columns: 60px 1fr;
+		}
+
+		.nav {			
+			grid-template-rows: repeat(3,60px) 1fr;
+			padding: 0.5rem 0;
+		}
+		.nav i {
+			font-size: 1em;
+		}
+		.nav p {
+			font-size: 0.8em;
+			margin: 5px 0;
+		}
+
+		.header {
+			grid-area: header;
+			grid-template-columns: 1fr 140px 45px 30px;
+			grid-template-areas: "header-logo header-usuario header-avatar header-flecha" "header-form header-form header-form header-form";
+			grid-gap: 10px;
+	
+		}
+		.header-logo {
+			grid-area: header-logo;
+		}
+		.header-form {
+			grid-area: header-form;
+		}
+		.header-usuario{
+			grid-area: header-usuario;
+		}
+		.header-avatar {
+			grid-area: header-avatar;
+		}		
+		.header i {
+			grid-area: header-flecha;
+		}
+		
+		.peliculas {
+			padding: 0 10px;
+		}
+		
+		.peliculas-seccion {
+			grid-template-columns: 1fr 1fr;
+			grid-auto-flow: row;
+		}
+
+	}
+
+@media (max-width: 480px) {
+		body {
+		}
+		
+		.peliculas-seccion {
+			grid-template-columns: 1fr;
+		}
+	}
+
+
+
+
+	</style>
+</head>
+<body>
+	<section class="movie">
+		<header class="header">
+			<img class="header-logo" src="logo.png" alt="">
+			<form action="" class="header-form">
+				<input type="text" placeholder="Busca tu peli, actor, actriz o director favorito">
+			</form>
+			<span class="header-usuario">Carlos Rojas F</span>
+			<img class="header-avatar"src="avatar.png" alt="">
+			<i class="fas fa-sort-down"></i>
+		</header>
+		<nav class="nav">
+			<div class="nav-home">
+				<i class="fas fa-home"></i>
+				<p>Home</p>
+			</div>
+			<div class="nav-trending">
+				<i class="fas fa-fire"></i>
+				<p>Trending</spapn>
+			</div>
+			<div class="nav-likes">
+				<i class="fas fa-heart"></i>
+				<p>Likes</p>
+			</div>
+			<div class="nav-ajustes">
+				<i class="fas fa-cog"></i>
+				<p>Ajustes</p>
+			</div>
+		</nav>
+		<article class="peliculas">
+
+			<h2>Ahora en el Cine</h2>
+			<section class="peliculas-seccion">
+				<div class="pelicula">
+					<img class="pelicula-imagen" src="starwars.jpg" alt="">
+					<div class="pelicula-detalles">
+						<h3 class="pelicula-titulo">Star Wars</h3>
+						<p class="pelicula-descripcion">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere corrupti modi minus voluptatum velit a provident harum sequi atque reiciendis.</p>
+					</div>
+				</div>	
+				<div class="pelicula">
+					<img class="pelicula-imagen" src="jaws.jpg" alt="">
+					<div class="pelicula-detalles">
+						<h3 class="pelicula-titulo">Jaws</h3>
+						<p class="pelicula-descripcion">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere corrupti modi minus voluptatum velit a provident harum sequi atque reiciendis.</p>
+					</div>
+				</div>
+					<div class="pelicula">
+						<img class="pelicula-imagen" src="jurassic-world.jpg" alt="">
+						<div class="pelicula-detalles">
+							<h3 class="pelicula-titulo">Jurasic World</h3>
+							<p class="pelicula-descripcion">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere corrupti modi minus voluptatum velit a provident harum sequi atque reiciendis.</p>
+						</div>
+				</div>
+			</section>
+			
+			<h2>Aclamadas por la crítica</h2>
+			<section class="peliculas-seccion">
+				<div class="pelicula">
+					<img class="pelicula-imagen" src="matrix.jpg" alt="">
+					<div class="pelicula-detalles">
+						<h3 class="pelicula-titulo">Matrix</h3>
+						<p class="pelicula-descripcion">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere corrupti modi minus voluptatum velit a provident harum sequi atque reiciendis.</p>
+					</div>
+				</div>	
+				<div class="pelicula">
+					<img class="pelicula-imagen" src="alien.jpg" alt="">
+					<div class="pelicula-detalles">
+						<h3 class="pelicula-titulo">Alien</h3>
+						<p class="pelicula-descripcion">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere corrupti modi minus voluptatum velit a provident harum sequi atque reiciendis.</p>
+					</div>
+				</div>
+					<div class="pelicula">
+						<img class="pelicula-imagen" src="avatar.jpg" alt="">
+						<div class="pelicula-detalles">
+							<h3 class="pelicula-titulo">Avatar</h3>
+							<p class="pelicula-descripcion">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere corrupti modi minus voluptatum velit a provident harum sequi atque reiciendis.</p>
+						</div>
+				</div>
+			</section>
+			
+			<h2>No te debes perder</h2>
+			<section class="peliculas-seccion">
+				<div class="pelicula">
+					<img class="pelicula-imagen" src="back-to-the-future.jpg" alt="">
+					<div class="pelicula-detalles">
+						<h3 class="pelicula-titulo">Back To The Future</h3>
+						<p class="pelicula-descripcion">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere corrupti modi minus voluptatum velit a provident harum sequi atque reiciendis.</p>
+					</div>
+				</div>	
+				<div class="pelicula">
+					<img class="pelicula-imagen" src="bohemian-rhapsody-web.jpg" alt="">
+					<div class="pelicula-detalles">
+						<h3 class="pelicula-titulo">Bohemian Rhapsody</h3>
+						<p class="pelicula-descripcion">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere corrupti modi minus voluptatum velit a provident harum sequi atque reiciendis.</p>
+					</div>
+				</div>
+					<div class="pelicula">
+						<img class="pelicula-imagen" src="The Exorcist.jpg" alt="">
+						<div class="pelicula-detalles">
+							<h3 class="pelicula-titulo">The Exorsist</h3>
+							<p class="pelicula-descripcion">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere corrupti modi minus voluptatum velit a provident harum sequi atque reiciendis.</p>
+						</div>
+				</div>
+			</section>
+
+
+		</article>
+
+
+
+	</section>
+</body>
+</html>

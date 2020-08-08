@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Áreas</title>
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		.container {
+			display: grid;
+			/* grid-template-columns: 25% 200px 25%; */
+			/* grid-template-rows: 200px 200px; */
+			/* grid-template: filas / columnas; */
+			/* grid-template: 300px 100px / 50% 200px 100px; */
+			/* grid-column-gap: 50px;
+			grid-row-gap: 10px; */
+			gap: 10px 10px;
+			/* fr */
+			grid-template: 100px 1fr 150px / 200px 1fr;
+			/* AREAS: 
+			- header
+			- left y contenido
+			- footer */
+			grid-template-areas: 	"header header"
+									"left contenido"
+									"footer footer";
+			height: 100vh;
+		}
+
+		.item {
+			background: lightblue;
+			padding: 10px;
+			border: 1px solid red;
+		}
+		.item:nth-of-type(4) {
+			background: blue;
+			overflow: auto;
+			/* display:subgrid; >>>> todavía no existe*/
+			/* display:inline-grid; todavía no existe*/
+			display: grid;
+			grid-template: 50px 50px 50px / 150px 150px 150px;
+		}
+		.item .item {
+			background: yellow;
+		}
+		.header{
+			grid-area: header;
+		}
+		.left {
+			grid-area: left;
+		}
+		.contenido {
+			grid-area: contenido;
+		}
+		.footer{
+			grid-area: footer;
+		}
+
+
+	</style>
+</head>
+<body>
+	<section class="container">
+		<div class="item header">header</div>
+		<div class="item left">left</div>
+		<div class="item contenido">contenido</div>
+		<div class="item footer">footer</div>
+	</section>
+</body>
+</html>
